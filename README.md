@@ -1,15 +1,10 @@
-## My Project
+## Go Bindings for cdk-verified-permissions
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+This repository included Go bindings for [cdk-verified-permissions](https://github.com/cdklabs/cdk-verified-permissions).
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [Security Issue Notifications](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
 
