@@ -15,6 +15,9 @@ import (
 type PolicyStore interface {
 	awscdk.Resource
 	IPolicyStore
+	// Deletion protection of the Policy Store.
+	// Experimental.
+	DeletionProtection() DeletionProtectionMode
 	// Description of the Policy Store.
 	// Experimental.
 	Description() *string
@@ -117,6 +120,16 @@ type PolicyStore interface {
 type jsiiProxy_PolicyStore struct {
 	internal.Type__awscdkResource
 	jsiiProxy_IPolicyStore
+}
+
+func (j *jsiiProxy_PolicyStore) DeletionProtection() DeletionProtectionMode {
+	var returns DeletionProtectionMode
+	_jsii_.Get(
+		j,
+		"deletionProtection",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_PolicyStore) Description() *string {

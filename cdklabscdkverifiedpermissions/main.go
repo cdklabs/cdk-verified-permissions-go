@@ -20,6 +20,14 @@ func init() {
 		"@cdklabs/cdk-verified-permissions.CognitoUserPoolConfiguration",
 		reflect.TypeOf((*CognitoUserPoolConfiguration)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"@cdklabs/cdk-verified-permissions.DeletionProtectionMode",
+		reflect.TypeOf((*DeletionProtectionMode)(nil)).Elem(),
+		map[string]interface{}{
+			"ENABLED": DeletionProtectionMode_ENABLED,
+			"DISABLED": DeletionProtectionMode_DISABLED,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-verified-permissions.EntityIdentifierProperty",
 		reflect.TypeOf((*EntityIdentifierProperty)(nil)).Elem(),
@@ -200,6 +208,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPolicies", GoMethod: "AddPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "addPoliciesFromPath", GoMethod: "AddPoliciesFromPath"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "deletionProtection", GoGetter: "DeletionProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -286,6 +295,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-verified-permissions.StaticPolicyFromFileProps",
 		reflect.TypeOf((*StaticPolicyFromFileProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@cdklabs/cdk-verified-permissions.Tag",
+		reflect.TypeOf((*Tag)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-verified-permissions.TemplateFromFileProps",

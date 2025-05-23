@@ -65,6 +65,18 @@ policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String(
 })
 ```
 
+Define a Policy Store with Validation Settings to OFF and Deletion Protection enabled:
+
+```go
+validationSettingsOff := map[string]validationSettingsMode{
+	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
+}
+test := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
+	ValidationSettings: validationSettingsOff,
+	DeletionProtection: *cdklabscdkverifiedpermissions.DeletionProtectionMode_ENABLED,
+})
+```
+
 ## Schemas
 
 If you want to have type safety when defining a schema, you can accomplish this **<ins>only</ins>** in typescript. Simply use the `Schema` type exported by the `@cedar-policy/cedar-wasm`.
