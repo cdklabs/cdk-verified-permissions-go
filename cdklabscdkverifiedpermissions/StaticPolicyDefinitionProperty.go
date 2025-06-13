@@ -17,5 +17,10 @@ type StaticPolicyDefinitionProperty struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// Boolean flag to activate policy validation against Cedar Language Syntax & Rules.
+	// Default: - true.
+	//
+	// Experimental.
+	EnablePolicyValidation *bool `field:"optional" json:"enablePolicyValidation" yaml:"enablePolicyValidation"`
 }
 
