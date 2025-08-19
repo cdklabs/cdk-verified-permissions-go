@@ -16,7 +16,7 @@ func (p *jsiiProxy_Policy) validateGetResourceNameAttributeParameters(nameAttr *
 	return nil
 }
 
-func validatePolicy_FromFileParameters(scope constructs.Construct, id *string, props *StaticPolicyFromFileProps) error {
+func validatePolicy_FromFileParameters(scope constructs.Construct, defaultPolicyId *string, props *StaticPolicyFromFileProps) error {
 	return nil
 }
 

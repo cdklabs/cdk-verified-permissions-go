@@ -206,18 +206,18 @@ func NewPolicy_Override(p Policy, scope constructs.Construct, id *string, props 
 // syntax but not validated against schema. In order to validate against schema, use
 // `PolicyStore.addPoliciesFromPath()`
 // Experimental.
-func Policy_FromFile(scope constructs.Construct, id *string, props *StaticPolicyFromFileProps) Policy {
+func Policy_FromFile(scope constructs.Construct, defaultPolicyId *string, props *StaticPolicyFromFileProps) *[]Policy {
 	_init_.Initialize()
 
-	if err := validatePolicy_FromFileParameters(scope, id, props); err != nil {
+	if err := validatePolicy_FromFileParameters(scope, defaultPolicyId, props); err != nil {
 		panic(err)
 	}
-	var returns Policy
+	var returns *[]Policy
 
 	_jsii_.StaticInvoke(
 		"@cdklabs/cdk-verified-permissions.Policy",
 		"fromFile",
-		[]interface{}{scope, id, props},
+		[]interface{}{scope, defaultPolicyId, props},
 		&returns,
 	)
 

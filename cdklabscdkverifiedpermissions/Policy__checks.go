@@ -42,13 +42,13 @@ func (p *jsiiProxy_Policy) validateGetResourceNameAttributeParameters(nameAttr *
 	return nil
 }
 
-func validatePolicy_FromFileParameters(scope constructs.Construct, id *string, props *StaticPolicyFromFileProps) error {
+func validatePolicy_FromFileParameters(scope constructs.Construct, defaultPolicyId *string, props *StaticPolicyFromFileProps) error {
 	if scope == nil {
 		return fmt.Errorf("parameter scope is required, but nil was provided")
 	}
 
-	if id == nil {
-		return fmt.Errorf("parameter id is required, but nil was provided")
+	if defaultPolicyId == nil {
+		return fmt.Errorf("parameter defaultPolicyId is required, but nil was provided")
 	}
 
 	if props == nil {
