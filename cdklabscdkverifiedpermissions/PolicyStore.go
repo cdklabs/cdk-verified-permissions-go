@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/interfaces"
 	"github.com/aws/constructs-go/constructs/v10"
 	"github.com/cdklabs/cdk-verified-permissions-go/cdklabscdkverifiedpermissions/internal"
 )
@@ -23,14 +24,15 @@ type PolicyStore interface {
 	Description() *string
 	// The environment this resource belongs to.
 	//
-	// For resources that are created and managed by the CDK
-	// (generally, those created by creating new class instances like Role, Bucket, etc.),
-	// this is always the same as the environment of the stack they belong to;
-	// however, for imported resources
-	// (those obtained from static methods like fromRoleArn, fromBucketName, etc.),
-	// that might be different than the stack they were imported into.
+	// For resources that are created and managed in a Stack (those created by
+	// creating new class instances like `new Role()`, `new Bucket()`, etc.), this
+	// is always the same as the environment of the stack they belong to.
+	//
+	// For referenced resources (those obtained from referencing methods like
+	// `Role.fromRoleArn()`, `Bucket.fromBucketName()`, etc.), they might be
+	// different than the stack they were imported into.
 	// Experimental.
-	Env() *awscdk.ResourceEnvironment
+	Env() *interfaces.ResourceEnvironment
 	// The tree node.
 	// Experimental.
 	Node() constructs.Node
@@ -66,11 +68,11 @@ type PolicyStore interface {
 	// Returns: An array of created policy constructs.
 	// Experimental.
 	AddPolicies(policyDefinitions *[]*AddPolicyOptions) *[]Policy
-	// Takes in an absolute path to a directory containing .cedar files and adds the contents of each .cedar file as policies to this policy store. Parses the policies with cedar-wasm and, if the policy store has a schema, performs semantic validation of the policies as well.
+	// Takes in an absolute path to a directory containing .cedar files and adds the contents of each .cedar file as policies to this policy store (searching recursively if needed). Parses the policies with cedar-wasm and, if the policy store has a schema, performs semantic validation of the policies as well.
 	//
 	// Returns: An array of created Policy constructs.
 	// Experimental.
-	AddPoliciesFromPath(absolutePath *string) *[]Policy
+	AddPoliciesFromPath(absolutePath *string, recursive *bool) *[]Policy
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -142,8 +144,8 @@ func (j *jsiiProxy_PolicyStore) Description() *string {
 	return returns
 }
 
-func (j *jsiiProxy_PolicyStore) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
+func (j *jsiiProxy_PolicyStore) Env() *interfaces.ResourceEnvironment {
+	var returns *interfaces.ResourceEnvironment
 	_jsii_.Get(
 		j,
 		"env",
@@ -448,7 +450,7 @@ func (p *jsiiProxy_PolicyStore) AddPolicies(policyDefinitions *[]*AddPolicyOptio
 	return returns
 }
 
-func (p *jsiiProxy_PolicyStore) AddPoliciesFromPath(absolutePath *string) *[]Policy {
+func (p *jsiiProxy_PolicyStore) AddPoliciesFromPath(absolutePath *string, recursive *bool) *[]Policy {
 	if err := p.validateAddPoliciesFromPathParameters(absolutePath); err != nil {
 		panic(err)
 	}
@@ -457,7 +459,7 @@ func (p *jsiiProxy_PolicyStore) AddPoliciesFromPath(absolutePath *string) *[]Pol
 	_jsii_.Invoke(
 		p,
 		"addPoliciesFromPath",
-		[]interface{}{absolutePath},
+		[]interface{}{absolutePath, recursive},
 		&returns,
 	)
 

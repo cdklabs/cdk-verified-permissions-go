@@ -19,7 +19,7 @@ test := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("Policy
 Define a Policy Store without Schema definition (Validation Settings Mode must be set to OFF):
 
 ```go
-validationSettingsOff := map[string]validationSettingsMode{
+validationSettingsOff := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
 }
 test := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
@@ -30,7 +30,7 @@ test := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("Policy
 Define a Policy Store with Description and Schema definition (a STRICT Validation Settings Mode is strongly suggested for Policy Stores with schemas):
 
 ```go
-validationSettingsStrict := map[string]validationSettingsMode{
+validationSettingsStrict := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_STRICT,
 }
 cedarJsonSchema := map[string]map[string]map[string]map[string]interface{}{
@@ -68,7 +68,7 @@ policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String(
 Define a Policy Store with Validation Settings to OFF and Deletion Protection enabled:
 
 ```go
-validationSettingsOff := map[string]validationSettingsMode{
+validationSettingsOff := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
 }
 test := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
@@ -86,7 +86,7 @@ You can also generate simple schemas using the static functions `schemaFromOpenA
 Generate a schema from an OpenAPI spec:
 
 ```go
-validationSettingsStrict := map[string]validationSettingsMode{
+validationSettingsStrict := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_STRICT,
 }
 cedarJsonSchema := cdklabscdkverifiedpermissions.PolicyStore_SchemaFromOpenApiSpec(jsii.String("path/to/swaggerfile.json"), jsii.String("UserGroup"))
@@ -103,7 +103,7 @@ policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String(
 Generate a schema from a RestApi construct:
 
 ```go
-validationSettingsStrict := map[string]validationSettingsMode{
+validationSettingsStrict := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_STRICT,
 }
 cedarJsonSchema := cdklabscdkverifiedpermissions.PolicyStore_SchemaFromRestApi(
@@ -124,7 +124,7 @@ Define Identity Source with Cognito Configuration and required properties:
 
 ```go
 userPool := awscdk.NewUserPool(*scope, jsii.String("UserPool")) // Creating a new Cognito UserPool
-validationSettingsStrict := map[string]validationSettingsMode{
+validationSettingsStrict := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_STRICT,
 }
 cedarJsonSchema := map[string]map[string]map[string]map[string]interface{}{
@@ -169,7 +169,7 @@ cdklabscdkverifiedpermissions.NewIdentitySource(*scope, jsii.String("IdentitySou
 Define Identity Source with Cognito Configuration and all properties:
 
 ```go
-validationSettingsStrict := map[string]validationSettingsMode{
+validationSettingsStrict := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_STRICT,
 }
 cedarJsonSchema := map[string]map[string]map[string]map[string]interface{}{
@@ -224,7 +224,7 @@ cdklabscdkverifiedpermissions.NewIdentitySource(*scope, jsii.String("IdentitySou
 Define Identity Source with OIDC Configuration and Access Token selection config:
 
 ```go
-validationSettingsStrict := map[string]validationSettingsMode{
+validationSettingsStrict := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_STRICT,
 }
 cedarJsonSchema := map[string]map[string]map[string]map[string]interface{}{
@@ -286,7 +286,7 @@ cdklabscdkverifiedpermissions.NewIdentitySource(*scope, jsii.String("IdentitySou
 Define Identity Source with OIDC Configuration and Identity Token selection config:
 
 ```go
-validationSettingsStrict := map[string]validationSettingsMode{
+validationSettingsStrict := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_STRICT,
 }
 cedarJsonSchema := map[string]map[string]map[string]map[string]interface{}{
@@ -349,7 +349,7 @@ Load all the `.cedar` files in a given folder and define Policy objects for each
 **PLEASE NOTE:** this method internally uses the `Policy.fromFile` so the same rules applies.
 
 ```go
-validationSettingsStrict := map[string]validationSettingsMode{
+validationSettingsStrict := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_STRICT,
 }
 policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
@@ -370,7 +370,7 @@ statement := `permit(
 };`
 
 description := "Test policy assigned to the test store"
-validationSettingsOff := map[string]validationSettingsMode{
+validationSettingsOff := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
 }
 policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
@@ -392,7 +392,7 @@ policy := cdklabscdkverifiedpermissions.NewPolicy(*scope, jsii.String("MyTestPol
 Define a policy with a template linked definition:
 
 ```go
-validationSettingsOff := map[string]validationSettingsMode{
+validationSettingsOff := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
 }
 policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
@@ -436,7 +436,7 @@ Define a Policy with a statement from file:
 
 ```go
 description := "Test policy assigned to the test store"
-validationSettingsOff := map[string]validationSettingsMode{
+validationSettingsOff := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
 }
 policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
@@ -457,7 +457,7 @@ policy := cdklabscdkverifiedpermissions.Policy_FromFile(*scope, jsii.String("MyT
 Define a Policy Template referring to a Cedar Statement in local file:
 
 ```go
-validationSettingsOff := map[string]validationSettingsMode{
+validationSettingsOff := map[string]ValidationSettingsMode{
 	"mode": cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
 }
 policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
