@@ -68,7 +68,7 @@ type PolicyStore interface {
 	// Returns: An array of created policy constructs.
 	// Experimental.
 	AddPolicies(policyDefinitions *[]*AddPolicyOptions) *[]Policy
-	// Takes in an absolute path to a directory containing .cedar files and adds the contents of each .cedar file as policies to this policy store (searching recursively if needed). Parses the policies with cedar-wasm and, if the policy store has a schema, performs semantic validation of the policies as well.
+	// Takes in an absolute path to a directory containing .cedar files and adds the contents of each .cedar file as policies to this policy store (searching recursively if needed). Parses the policies with cedar-wasm and, if the policy store has a schema, performs semantic validation of the policies as well. Organizes policies with dependencies to avoid CloudFormation throttling and resource conflicts.
 	//
 	// Returns: An array of created Policy constructs.
 	// Experimental.
