@@ -16,6 +16,13 @@ type PolicyStoreProps struct {
 	//
 	// Experimental.
 	Description *string `field:"optional" json:"description" yaml:"description"`
+	// The encryption settings for the policy store.
+	//
+	// If not specified, the policy store will use the default AWS owned key encryption.
+	// Default: - AWS owned key encryption.
+	//
+	// Experimental.
+	EncryptionSettings *EncryptionSettings `field:"optional" json:"encryptionSettings" yaml:"encryptionSettings"`
 	// This attribute is not required from an API point of view.
 	//
 	// It represents the schema (in Cedar) to be applied to the PolicyStore.

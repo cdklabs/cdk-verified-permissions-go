@@ -77,6 +77,61 @@ test := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("Policy
 })
 ```
 
+Define a Policy Store with AWS owned key encryption (default behavior):
+
+```go
+policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
+	ValidationSettings: &ValidationSettings{
+		Mode: *cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
+	},
+	EncryptionSettings: &EncryptionSettings{
+		AwsOwnedKey: jsii.Boolean(true),
+	},
+})
+```
+
+Define a Policy Store with a customer-managed KMS key for encryption:
+
+```go
+key := kms.NewKey(*scope, jsii.String("PolicyStoreKey"), &KeyProps{
+	Description: jsii.String("Key for Verified Permissions Policy Store encryption"),
+})
+
+policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
+	ValidationSettings: &ValidationSettings{
+		Mode: *cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
+	},
+	EncryptionSettings: &EncryptionSettings{
+		CustomerManagedKey: &KmsEncryptionSettings{
+			Key: *Key,
+		},
+	},
+})
+```
+
+Define a Policy Store with a customer-managed KMS key and encryption context:
+
+```go
+key := kms.NewKey(*scope, jsii.String("PolicyStoreKey"), &KeyProps{
+	Description: jsii.String("Key for Verified Permissions Policy Store encryption"),
+})
+
+policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
+	ValidationSettings: &ValidationSettings{
+		Mode: *cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
+	},
+	EncryptionSettings: &EncryptionSettings{
+		CustomerManagedKey: &KmsEncryptionSettings{
+			Key: *Key,
+			EncryptionContext: map[string]*string{
+				"department": jsii.String("security"),
+				"project": jsii.String("verified-permissions"),
+			},
+		},
+	},
+})
+```
+
 ## Schemas
 
 If you want to have type safety when defining a schema, you can accomplish this **<ins>only</ins>** in typescript. Simply use the `Schema` type exported by the `@cedar-policy/cedar-wasm`.

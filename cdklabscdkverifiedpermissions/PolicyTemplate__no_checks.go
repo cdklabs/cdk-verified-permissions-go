@@ -4,6 +4,10 @@ package cdklabscdkverifiedpermissions
 
 // Building without runtime type checking enabled, so all the below just return nil
 
+func (p *jsiiProxy_PolicyTemplate) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_PolicyTemplate) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

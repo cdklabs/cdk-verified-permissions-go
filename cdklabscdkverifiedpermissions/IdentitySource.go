@@ -73,6 +73,15 @@ type IdentitySource interface {
 	// Add a User Pool Client The method can be called only when the Identity Source is configured with Cognito auth provider.
 	// Experimental.
 	AddUserPoolClient(userPoolClient awscognito.IUserPoolClient)
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -104,6 +113,14 @@ type IdentitySource interface {
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	// Experimental.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for IdentitySource
@@ -324,8 +341,22 @@ func IdentitySource_FromIdentitySourceId(scope constructs.Construct, id *string,
 
 // Checks if `x` is a construct.
 //
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Experimental.
 func IdentitySource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -417,6 +448,17 @@ func (i *jsiiProxy_IdentitySource) AddUserPoolClient(userPoolClient awscognito.I
 	)
 }
 
+func (i *jsiiProxy_IdentitySource) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := i.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		i,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
+}
+
 func (i *jsiiProxy_IdentitySource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	if err := i.validateApplyRemovalPolicyParameters(policy); err != nil {
 		panic(err)
@@ -480,6 +522,24 @@ func (i *jsiiProxy_IdentitySource) ToString() *string {
 		i,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IdentitySource) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		i,
+		"with",
+		args,
 		&returns,
 	)
 

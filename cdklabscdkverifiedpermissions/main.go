@@ -29,6 +29,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"@cdklabs/cdk-verified-permissions.EncryptionSettings",
+		reflect.TypeOf((*EncryptionSettings)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-verified-permissions.EntityIdentifierProperty",
 		reflect.TypeOf((*EntityIdentifierProperty)(nil)).Elem(),
 	)
@@ -41,6 +45,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "identitySourceId", GoGetter: "IdentitySourceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IIdentitySource{}
@@ -58,6 +63,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "policyId", GoGetter: "PolicyId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyType", GoGetter: "PolicyType"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicy{}
@@ -79,6 +85,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "policyStoreArn", GoGetter: "PolicyStoreArn"},
 			_jsii_.MemberProperty{JsiiProperty: "policyStoreId", GoGetter: "PolicyStoreId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyStore{}
@@ -95,6 +102,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "policyTemplateId", GoGetter: "PolicyTemplateId"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IPolicyTemplate{}
@@ -109,6 +117,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addAudience", GoMethod: "AddAudience"},
 			_jsii_.MemberMethod{JsiiMethod: "addClientId", GoMethod: "AddClientId"},
 			_jsii_.MemberMethod{JsiiMethod: "addUserPoolClient", GoMethod: "AddUserPoolClient"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "audiencesOIDC", GoGetter: "AudiencesOIDC"},
 			_jsii_.MemberProperty{JsiiProperty: "clientIds", GoGetter: "ClientIds"},
@@ -128,6 +137,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "userPoolArn", GoGetter: "UserPoolArn"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_IdentitySource{}
@@ -149,6 +159,10 @@ func init() {
 		reflect.TypeOf((*IdentitySourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@cdklabs/cdk-verified-permissions.KmsEncryptionSettings",
+		reflect.TypeOf((*KmsEncryptionSettings)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-verified-permissions.OpenIdConnectAccessTokenConfiguration",
 		reflect.TypeOf((*OpenIdConnectAccessTokenConfiguration)(nil)).Elem(),
 	)
@@ -168,6 +182,7 @@ func init() {
 		"@cdklabs/cdk-verified-permissions.Policy",
 		reflect.TypeOf((*Policy)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "definition", GoGetter: "Definition"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -181,6 +196,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "policyType", GoGetter: "PolicyType"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Policy{}
@@ -207,9 +223,11 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addPolicies", GoMethod: "AddPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "addPoliciesFromPath", GoMethod: "AddPoliciesFromPath"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "deletionProtection", GoGetter: "DeletionProtection"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
+			_jsii_.MemberProperty{JsiiProperty: "encryptionSettings", GoGetter: "EncryptionSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -227,6 +245,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "validationSettings", GoGetter: "ValidationSettings"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PolicyStore{}
@@ -247,6 +266,7 @@ func init() {
 		"@cdklabs/cdk-verified-permissions.PolicyTemplate",
 		reflect.TypeOf((*PolicyTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -260,6 +280,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "statement", GoGetter: "Statement"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PolicyTemplate{}

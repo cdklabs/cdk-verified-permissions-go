@@ -22,6 +22,9 @@ type PolicyStore interface {
 	// Description of the Policy Store.
 	// Experimental.
 	Description() *string
+	// Encryption settings of the Policy Store.
+	// Experimental.
+	EncryptionSettings() *EncryptionSettings
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed in a Stack (those created by
@@ -73,6 +76,15 @@ type PolicyStore interface {
 	// Returns: An array of created Policy constructs.
 	// Experimental.
 	AddPoliciesFromPath(absolutePath *string, recursive *bool) *[]Policy
+	// Override the cross-stack reference strength for this resource.
+	//
+	// When set, any cross-stack reference to this resource will use the specified
+	// mechanism instead of the global default determined by the
+	// `@aws-cdk/core:defaultCrossStackReferences` context key. This is useful for
+	// selectively weakening specific references to avoid the "deadly embrace" problem
+	// without changing the app-wide default.
+	// Experimental.
+	ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength)
 	// Apply the given removal policy to this resource.
 	//
 	// The Removal Policy controls what happens to this resource when it stops
@@ -116,6 +128,14 @@ type PolicyStore interface {
 	// Returns a string representation of this construct.
 	// Experimental.
 	ToString() *string
+	// Applies one or more mixins to this construct.
+	//
+	// Mixins are applied in order. The list of constructs is captured at the
+	// start of the call, so constructs added by a mixin will not be visited.
+	// Use multiple `with()` calls if subsequent mixins should apply to added
+	// constructs.
+	// Experimental.
+	With(mixins ...constructs.IMixin) constructs.IConstruct
 }
 
 // The jsii proxy struct for PolicyStore
@@ -139,6 +159,16 @@ func (j *jsiiProxy_PolicyStore) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PolicyStore) EncryptionSettings() *EncryptionSettings {
+	var returns *EncryptionSettings
+	_jsii_.Get(
+		j,
+		"encryptionSettings",
 		&returns,
 	)
 	return returns
@@ -326,8 +356,22 @@ func PolicyStore_FromPolicyStoreId(scope constructs.Construct, id *string, polic
 
 // Checks if `x` is a construct.
 //
+// Use this method instead of `instanceof` to properly detect `Construct`
+// instances, even when the construct library is symlinked.
+//
+// Explanation: in JavaScript, multiple copies of the `constructs` library on
+// disk are seen as independent, completely different libraries. As a
+// consequence, the class `Construct` in each copy of the `constructs` library
+// is seen as a different class, and an instance of one class will not test as
+// `instanceof` the other class. `npm install` will not create installations
+// like this, but users may manually symlink construct libraries together or
+// use a monorepo tool: in those cases, multiple copies of the `constructs`
+// library can be accidentally installed, and `instanceof` will behave
+// unpredictably. It is safest to avoid using `instanceof`, and using
+// this type-testing method instead.
+//
 // Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead.
+// Experimental.
 func PolicyStore_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -466,6 +510,17 @@ func (p *jsiiProxy_PolicyStore) AddPoliciesFromPath(absolutePath *string, recurs
 	return returns
 }
 
+func (p *jsiiProxy_PolicyStore) ApplyCrossStackReferenceStrength(strength awscdk.ReferenceStrength) {
+	if err := p.validateApplyCrossStackReferenceStrengthParameters(strength); err != nil {
+		panic(err)
+	}
+	_jsii_.InvokeVoid(
+		p,
+		"applyCrossStackReferenceStrength",
+		[]interface{}{strength},
+	)
+}
+
 func (p *jsiiProxy_PolicyStore) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	if err := p.validateApplyRemovalPolicyParameters(policy); err != nil {
 		panic(err)
@@ -598,6 +653,24 @@ func (p *jsiiProxy_PolicyStore) ToString() *string {
 		p,
 		"toString",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (p *jsiiProxy_PolicyStore) With(mixins ...constructs.IMixin) constructs.IConstruct {
+	args := []interface{}{}
+	for _, a := range mixins {
+		args = append(args, a)
+	}
+
+	var returns constructs.IConstruct
+
+	_jsii_.Invoke(
+		p,
+		"with",
+		args,
 		&returns,
 	)
 

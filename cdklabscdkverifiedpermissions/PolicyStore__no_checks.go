@@ -12,6 +12,10 @@ func (p *jsiiProxy_PolicyStore) validateAddPoliciesFromPathParameters(absolutePa
 	return nil
 }
 
+func (p *jsiiProxy_PolicyStore) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (p *jsiiProxy_PolicyStore) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }

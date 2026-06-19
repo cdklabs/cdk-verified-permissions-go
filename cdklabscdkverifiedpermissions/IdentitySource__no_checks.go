@@ -16,6 +16,10 @@ func (i *jsiiProxy_IdentitySource) validateAddUserPoolClientParameters(userPoolC
 	return nil
 }
 
+func (i *jsiiProxy_IdentitySource) validateApplyCrossStackReferenceStrengthParameters(strength awscdk.ReferenceStrength) error {
+	return nil
+}
+
 func (i *jsiiProxy_IdentitySource) validateApplyRemovalPolicyParameters(policy awscdk.RemovalPolicy) error {
 	return nil
 }
