@@ -94,6 +94,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"@cdklabs/cdk-verified-permissions.IPolicyStoreAlias",
+		reflect.TypeOf((*IPolicyStoreAlias)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aliasName", GoGetter: "AliasName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IPolicyStoreAlias{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"@cdklabs/cdk-verified-permissions.IPolicyTemplate",
 		reflect.TypeOf((*IPolicyTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -253,6 +270,39 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPolicyStore)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"@cdklabs/cdk-verified-permissions.PolicyStoreAlias",
+		reflect.TypeOf((*PolicyStoreAlias)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "aliasName", GoGetter: "AliasName"},
+			_jsii_.MemberMethod{JsiiMethod: "applyCrossStackReferenceStrength", GoMethod: "ApplyCrossStackReferenceStrength"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "policyStore", GoGetter: "PolicyStore"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "with", GoMethod: "With"},
+		},
+		func() interface{} {
+			j := jsiiProxy_PolicyStoreAlias{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IPolicyStoreAlias)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@cdklabs/cdk-verified-permissions.PolicyStoreAliasAttributes",
+		reflect.TypeOf((*PolicyStoreAliasAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"@cdklabs/cdk-verified-permissions.PolicyStoreAliasProps",
+		reflect.TypeOf((*PolicyStoreAliasProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"@cdklabs/cdk-verified-permissions.PolicyStoreAttributes",

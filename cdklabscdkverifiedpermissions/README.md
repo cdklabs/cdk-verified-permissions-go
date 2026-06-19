@@ -507,6 +507,31 @@ policyFromFileProps := map[string]interface{}{
 policy := cdklabscdkverifiedpermissions.Policy_FromFile(*scope, jsii.String("MyTestPolicy"), policyFromFileProps)
 ```
 
+## Policy Store Alias
+
+A Policy Store Alias provides an alternative identifier that you can use to reference a policy store in API operations. This operation is idempotent — if multiple requests are made with the same `aliasName` and `policyStoreId`, subsequent requests will be ignored.
+
+Define a Policy Store Alias for an existing policy store:
+
+```go
+policyStore := cdklabscdkverifiedpermissions.NewPolicyStore(*scope, jsii.String("PolicyStore"), &PolicyStoreProps{
+	ValidationSettings: &ValidationSettings{
+		Mode: *cdklabscdkverifiedpermissions.ValidationSettingsMode_OFF,
+	},
+})
+
+cdklabscdkverifiedpermissions.NewPolicyStoreAlias(*scope, jsii.String("PolicyStoreAlias"), &PolicyStoreAliasProps{
+	AliasName: jsii.String("my-app-production"),
+	PolicyStore: policyStore,
+})
+```
+
+Reference an existing Policy Store Alias:
+
+```go
+alias := cdklabscdkverifiedpermissions.PolicyStoreAlias_FromAliasName(*scope, jsii.String("ImportedAlias"), jsii.String("my-app-production"))
+```
+
 ## Policy Template
 
 Define a Policy Template referring to a Cedar Statement in local file:
